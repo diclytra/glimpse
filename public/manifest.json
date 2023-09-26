@@ -1,9 +1,9 @@
 {
-  "name": "Sparkle",
-  "short_name": "Sparkle",
+  "name": "Glimpse",
+  "short_name": "Glimpse",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "Sparkle",
+  "description": "Glimpse URL checker",
   "icons": []
 }

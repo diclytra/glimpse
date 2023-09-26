@@ -1,3 +1,6 @@
+/* Ruslan Sendecky <ruslan.sendecky@nab.com.au> */
+/************************************************/
+
 const URLS = [
   "https://randomuser.me/api/",
   "https://httpbin.org/",

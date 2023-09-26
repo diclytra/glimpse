@@ -1,7 +1,5 @@
-// Copyright (c), Ruslan Sendecky
-// All rights reserved
-// Use of this source code is governed by the MIT license
-// See LICENSE for details
+/* Ruslan Sendecky <ruslan.sendecky@nab.com.au> */
+/************************************************/
 
 import React, { useState, useContext, createContext } from "react"
 

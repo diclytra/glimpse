@@ -1,3 +1,6 @@
+/* Ruslan Sendecky <ruslan.sendecky@nab.com.au> */
+/************************************************/
+
 import { useState, useEffect } from "react"
 import "./record.css"
 import { useStore } from "./store.jsx"

@@ -1,3 +1,6 @@
+/* Ruslan Sendecky <ruslan.sendecky@nab.com.au> */
+/************************************************/
+
 import URLS from "./urls.js"
 import "./home.css"
 import Record from "./record.jsx"
