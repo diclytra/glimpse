@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react"
 import "./record.css"
+import { useStore } from "./store.jsx"
 
 const Record = ({ url }) => {
-  const [data, setData] = useState({ name: getName(url), status: 0 })
+  let [data, setData] = useState({ name: getName(url), status: 0 })
+  let [reload] = useStore("reload")
 
   useEffect(() => {
+    setData({ ...data, status: 0 })
     fetch(url, { method: "GET", mode: "cors" })
       .then((res) => {
         setData({ ...data, status: res.status })
       })
       .catch((err) => console.error(err))
-  }, [data.status])
+  }, [reload])
 
   return (
     <div className="record">
