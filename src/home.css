@@ -10,11 +10,28 @@
 header {
   border-bottom: 1px solid white;
   height: 10%;
-  padding: 0.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-bottom: 2em;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 main {
   height: 91%;
-  padding: 0.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.icon {
+  width: 3.5em;
+  height: 3.5em;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.7s ease-in-out;
+}
+
+.icon:hover {
+  transform: rotate(360deg);
 }
