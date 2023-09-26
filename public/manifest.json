@@ -1,0 +1,9 @@
+{
+  "name": "Sparkle",
+  "short_name": "Sparkle",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Sparkle",
+  "icons": []
+}
