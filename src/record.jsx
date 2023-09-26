@@ -13,10 +13,10 @@ const Record = ({ url }) => {
   }, [data.status])
 
   return (
-    <h2>
-      {data.name}: {data.status}
+    <div className="record">
+      <h2>{data.name}</h2>
       <span className={`dot ${data.status == 200 ? "ok" : ""}`}></span>
-    </h2>
+    </div>
   )
 }
 
