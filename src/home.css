@@ -28,13 +28,18 @@ main {
 }
 
 .icon {
-  width: 3.5em;
-  height: 3.5em;
+  width: 3em;
+  height: 3em;
   color: white;
   cursor: pointer;
-  transition: transform 0.7s ease-in-out;
+  transition: transform 1s ease-in-out;
 }
 
 .icon:hover {
   transform: rotate(360deg);
+}
+
+.icon:active {
+  width: 3.2em;
+  height: 3.2em;
 }
