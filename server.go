@@ -2,28 +2,39 @@ package main
 
 import (
 	"embed"
+	"flag"
 	"fmt"
 	"io/fs"
 	"log"
 	"net/http"
-	"os"
 )
 
 //go:embed dist
 var dist embed.FS
 
 func main() {
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "1234"
-	}
+	var port string
+	flag.StringVar(&port, "port", "1234", "port number")
+	flag.Parse()
 
-	publicFS, err := fs.Sub(dist, "dist")
+	efs, err := fs.Sub(dist, "dist")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	http.Handle("/", http.FileServer(http.FS(publicFS)))
+	wrap := func(h http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			if r.URL.Path != "/" {
+				_, err := efs.Open(r.URL.Path[1:])
+				if err != nil {
+					r.URL.Path = "/"
+				}
+			}
+			h.ServeHTTP(w, r)
+		})
+	}
+
+	http.Handle("/", wrap(http.FileServer(http.FS(efs))))
 	log.Printf("Listening on :%s...\n", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
 }
