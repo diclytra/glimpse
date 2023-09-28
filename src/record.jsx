@@ -4,6 +4,8 @@
 import { useState, useEffect } from "react"
 import "./record.css"
 import { useStore } from "./store.jsx"
+import { Link } from "react-router-dom"
+import View from "./view.jsx"
 
 const Record = ({ url }) => {
   let [data, setData] = useState({ name: getName(url), status: 0 })
@@ -21,6 +23,7 @@ const Record = ({ url }) => {
   return (
     <div className="record">
       <h2>{data.name}</h2>
+      <Link to="/view">View</Link>
       <span className={`dot ${data.status == 200 ? "ok" : ""}`}></span>
     </div>
   )
