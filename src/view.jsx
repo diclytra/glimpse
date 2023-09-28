@@ -1,8 +1,11 @@
 /* Ruslan Sendecky <ruslan.sendecky@nab.com.au> */
 /************************************************/
 
+import { useParams } from "react-router-dom"
+
 const View = () => {
-  return <h1>View</h1>
+  let { id } = useParams()
+  return <h1>{id}</h1>
 }
 
 export default View
