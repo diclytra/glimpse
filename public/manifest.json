@@ -1,9 +1,0 @@
-{
-  "name": "Glimpse",
-  "short_name": "Glimpse",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#fff",
-  "description": "Glimpse URL checker",
-  "icons": []
-}
