@@ -11,7 +11,8 @@ RUN yarn install
 RUN yarn build
 RUN mv dist/ server/
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" server/main.go
+WORKDIR server
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" main.go
 
 FROM scratch
 
