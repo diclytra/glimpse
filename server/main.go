@@ -36,7 +36,9 @@ func main() {
 		})
 	}
 
-	mux.Handle("/", wrap(http.FileServer(http.FS(efs))))
+	mux.Handle("GET /", wrap(http.FileServer(http.FS(efs))))
+	mux.HandleFunc("GET /api/world", World)
+	mux.HandleFunc("GET /api/hello/{name}", Hello)
 
 	log.Printf("Listening on :%s...\n", port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), mux))
