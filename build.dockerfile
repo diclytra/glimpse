@@ -9,12 +9,13 @@ WORKDIR glimpse
 
 RUN yarn install
 RUN yarn build
+RUN mv dist/ server/
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" server.go
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" server/main.go
 
 FROM scratch
 
-COPY --from=builder /glimpse/server /glimpse
+COPY --from=builder /glimpse/server/main /glimpse
 
 EXPOSE 1234
 CMD ["/glimpse"]
